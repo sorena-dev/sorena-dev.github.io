@@ -203,7 +203,8 @@
               <li class="list-inline-item">
                 <i class="fab fa-aws"></i>
               </li>
-  
+
+              
               
              
             </ul>
@@ -303,27 +304,36 @@
                 </p>
             </div>
         </section>
-
-        <section class="resume-section p-3 p-lg-5 d-flex flex-column" id = "contact-form">
-          <div class="my-auto">
-              <h2 class="subheading">Contact Me</h2>
-              <form id="contactForm" action="YOUR_SERVER_ENDPOINT" method="POST">
-                  <div class="form-group">
-                      <label for="name">Name</label>
-                      <input type="text" id="name" name="name" required class="form-control">
-                  </div>
-                  <div class="form-group">
-                      <label for="email">Email</label>
-                      <input type="email" id="email" name="email" required class="form-control">
-                  </div>
-                  <div class="form-group">
-                      <label for="message">Message</label>
-                      <textarea id="message" name="message" required class="form-control" rows="5"></textarea>
-                  </div>
-                  <button type="submit" class="btn btn-primary">Send Message</button>
-              </form>
-          </div>
-      </section>
+        <section class="resume-section" id="contact">
+            <div class="container">
+                <h2 class="mb-5 text-primary">Contact Me</h2>
+                <form id="contact-form" class="contact-form">
+                    <div class="form-group">
+                        <label for="name" class="text-secondary">Your Name</label>
+                        <input type="text" id="name" name="name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="text-secondary">Your Email</label>
+                        <input type="email" id="email" name="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message" class="text-secondary">Your Message</label>
+                        <textarea id="message" name="message" class="form-control" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send</button>
+                </form>
+            </div>
+        </section>
+        
+        <script>
+            document.getElementById('contact-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
+                    .then(() => alert('Message sent!'))
+                    .catch(err => alert('Error: ' + JSON.stringify(err)));
+            });
+        </script>
+        
   
 
     </div>
